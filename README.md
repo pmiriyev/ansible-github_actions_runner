@@ -166,8 +166,8 @@ Runner service will be stated and will run under the same user as the Ansible is
   user: ansible
   become: yes
   vars:
-    - github_account: github-access-user
-    - github_repo: my_awesome_repo
+    github_account: github-access-user
+    github_repo: my_awesome_repo
   roles:
     - role: monolithprojects.github_actions_runner
 ```
@@ -181,9 +181,9 @@ Same example as above, but runner will be added to an organization and deployed 
   user: ansible
   become: yes
   vars:
-    - github_account: my_awesome_org
-    - runner_org: yes
-    - runner_on_ghes: yes
+    github_account: my_awesome_org
+    runner_org: yes
+    runner_on_ghes: yes
   roles:
     - role: monolithprojects.github_actions_runner
 ```
@@ -197,8 +197,8 @@ If you have a Github Enterprise Cloud license and you want to manage all the sel
   user: automation
   become: yes
   vars:
-    - github_enterprise: my_awesome_enterprise
-    - runner_org: no
+    github_enterprise: my_awesome_enterprise
+    runner_org: no
   roles:
     - role: monolithprojects.github_actions_runner
 ```
@@ -212,20 +212,20 @@ The runner service will be *stopped* and disabled. Runner will use custom enviro
   hosts: all
   become: yes
   vars:
-    - runner_version: "2.165.2"
-    - runner_user: runner-user
-    - github_account: github-access-user
-    - github_repo: my_awesome_repo
-    - runner_state: "stopped"
-    - runner_labels:
-        - production
-        - west
-    - custom_env: |
-        HTTP_PROXY=http://proxy.local:8080
-        http_proxy=http://proxy.local:8080
-        HTTPS_PROXY=http://proxy.local:8080
-        https_proxy=http://proxy.local:8080
-        no_proxy=localhost,127.0.0.1,127.0.0.2
+    runner_version: "2.165.2"
+    runner_user: runner-user
+    github_account: github-access-user
+    github_repo: my_awesome_repo
+    runner_state: "stopped"
+    runner_labels:
+      - production
+      - west
+    custom_env: |
+      HTTP_PROXY=http://proxy.local:8080
+      http_proxy=http://proxy.local:8080
+      HTTPS_PROXY=http://proxy.local:8080
+      https_proxy=http://proxy.local:8080
+      no_proxy=localhost,127.0.0.1,127.0.0.2
 
   roles:
     - role: monolithprojects.github_actions_runner
@@ -239,9 +239,9 @@ In this example the Ansible role will uninstall the runner service and unregiste
   hosts: all
   become: yes
   vars:
-    - github_account: github-access-user
-    - github_repo: my_awesome_repo
-    - runner_state: "absent"
+    github_account: github-access-user
+    github_repo: my_awesome_repo
+    runner_state: "absent"
   roles:
     - role: monolithprojects.github_actions_runner
 ```
