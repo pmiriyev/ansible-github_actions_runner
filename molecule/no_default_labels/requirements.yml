@@ -1,2 +1,5 @@
 ---
-# No extra requirements for this scenario
+
+roles:
+- name: robertdebock.epel
+  version: 3.0.1

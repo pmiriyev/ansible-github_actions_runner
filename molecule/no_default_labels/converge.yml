@@ -3,10 +3,15 @@
   hosts: all
   become: yes
   vars:
+    runner_user: ansible
+    github_repo: "{{ lookup('env', 'GITHUB_REPO') }}"
+    github_account: "{{ lookup('env', 'GITHUB_ACCOUNT') }}"
+    runner_version: "latest"
+    runner_name: test_name
     runner_no_default_labels: true
     runner_labels:
-      - testlabel
-    github_account: testuser
-    github_repo: testrepo
+      - testlabel1    
+      - testlabel2
   roles:
     - role: monolithprojects.github_actions_runner
+

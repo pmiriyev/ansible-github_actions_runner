@@ -24,7 +24,7 @@ platforms:
 verifier:
   name: ansible
 scenario:
-  name: default
+  name: no_default_labels
   test_sequence:
     - dependency
     - destroy
