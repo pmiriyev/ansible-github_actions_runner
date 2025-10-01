@@ -113,6 +113,9 @@ runner_org: false
 # Labels to apply to the runner
 runner_labels: []
 
+# Disable default labels (self-hosted, Linux, X64) and require custom labels. Set `runner_no_default_labels: true` and provide at least one label in `runner_labels` to use this feature.
+runner_no_default_labels: false
+
 # Group to add organization runner to
 runner_group: ""
 

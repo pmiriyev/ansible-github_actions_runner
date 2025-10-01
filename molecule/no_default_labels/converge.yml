@@ -1,0 +1,12 @@
+---
+- name: Test no_default_labels scenario
+  hosts: all
+  become: yes
+  vars:
+    runner_no_default_labels: true
+    runner_labels:
+      - testlabel
+    github_account: testuser
+    github_repo: testrepo
+  roles:
+    - role: monolithprojects.github_actions_runner

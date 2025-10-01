@@ -1,0 +1,13 @@
+---
+- name: Verify runner_no_default_labels
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Assert runner_no_default_labels is true
+      ansible.builtin.assert:
+        that:
+          - hostvars[inventory_hostname]['runner_no_default_labels'] | bool
+    - name: Assert runner_labels contains testlabel
+      ansible.builtin.assert:
+        that:
+          - 'testlabel' in hostvars[inventory_hostname]['runner_labels']
