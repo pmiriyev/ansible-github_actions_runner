@@ -39,3 +39,10 @@
     fail_msg: "runner_user_win_password was not defined, but it is required on a windows system"
   run_once: true
   when: github_actions_system == "win"
+
+- name: Check runner_labels is not empty if runner_no_default_labels is true (RUN ONCE)
+  ansible.builtin.assert:
+    that:
+      - not (runner_no_default_labels | bool) or (runner_labels is defined and runner_labels | length > 0)
+    fail_msg: "runner_labels must be set and not empty when runner_no_default_labels is true."
+  run_once: true

@@ -78,8 +78,9 @@
     --runasservice \
     --windowslogonaccount {{ runner_user }} \
     --windowslogonpassword {{ runner_user_win_password }} \
-    --unattended \
-    {{ runner_extra_config_args }}"
+  --unattended \
+  {{ '--no-default-labels' if runner_no_default_labels | bool else '' }} \
+  {{ runner_extra_config_args }}"
   args:
     chdir: "{{ runner_dir }}"
   changed_when: true
@@ -101,9 +102,10 @@
     --runasservice \
     --windowslogonaccount {{ runner_user }} \
     --windowslogonpassword {{ runner_user_win_password }} \
-    --unattended \
-    {{ runner_extra_config_args }} \
-    --replace"
+  --unattended \
+  {{ '--no-default-labels' if runner_no_default_labels | bool else '' }} \
+  {{ runner_extra_config_args }} \
+  --replace"
   args:
     chdir: "{{ runner_dir }}"
   changed_when: true

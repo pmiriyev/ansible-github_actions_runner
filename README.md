@@ -113,6 +113,9 @@ runner_org: false
 # Labels to apply to the runner
 runner_labels: []
 
+# Disable default labels (self-hosted, Linux, X64) and require custom labels. Set `runner_no_default_labels: true` and provide at least one label in `runner_labels` to use this feature.
+runner_no_default_labels: false
+
 # Group to add organization runner to
 runner_group: ""
 
@@ -263,33 +266,8 @@ In this example the Ansible role will uninstall the runner service and unregiste
 2. Install Molecule and its Docker driver with pip:
 
 ```bash
-pip install "molecule-plugins[docker]"
-```
-Sure, here's a basic example of how you might structure a README to explain how to test the `monolithprojects.github_actions_runner` Ansible role with Molecule:
-
-```markdown
-# monolithprojects.github_actions_runner
-
-This is an Ansible role for setting up GitHub Actions runners.
-
-## Testing with Molecule
-
-[Molecule](https://molecule.readthedocs.io/) is a testing framework for Ansible that we use to test the `monolithprojects.github_actions_runner` role.
-
-### Prerequisites
-
-- Python
-- Docker
-- Ansible
-- Molecule
-
-### Installation
-
-1. Install Python, Docker, and Ansible if you haven't already.
-2. Install Molecule and its Docker driver with pip:
-
-```bash
 pip install molecule[docker]
+pip install "molecule-plugins[docker]"
 ```
 
 ### Running Tests
