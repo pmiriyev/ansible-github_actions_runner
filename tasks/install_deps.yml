@@ -56,6 +56,20 @@
   become: true
   when: (ansible_facts.distribution == "Debian" and ansible_facts.distribution_major_version == "12")
 
+- name: Install dependencies on Debian Trixie
+  ansible.builtin.package:
+    pkg:
+      - acl
+      - liblttng-ust1t64
+      - libkrb5-3
+      - zlib1g
+      - libssl3
+      - libicu76
+    state: present
+    update_cache: true
+  become: true
+  when: (ansible_facts.distribution == "Debian" and ansible_facts.distribution_major_version == "13")
+
 - name: Install dependencies on Ubuntu Xenial systems
   ansible.builtin.package:
     pkg:
